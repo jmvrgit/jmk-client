@@ -10,5 +10,6 @@ void loop() {
  sensorValue = analogRead(sensorPin);
  float percentage = (sensorValue/1024)*100; // % moisture
  Serial.println(percentage);
- delay(18000000); //every 30 minutes
+// delay(18000000); //every 30 minutes
+ delay(1000); // every second for the sake of testing
 }
