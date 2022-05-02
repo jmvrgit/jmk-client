@@ -9,14 +9,14 @@ deviceId="1"
 watered=0
 
 if __name__ == '__main__':
-    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1) #select serial USB
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1) #select serial USB of arduino
     ser.reset_input_buffer()
     while True:
-        if ser.in_waiting > 0:
+        if ser.in_waiting > 0: #if serial buffer is not empty
             moisture = ser.readline().decode('utf-8').rstrip() #decode serial
-            print(moisture)
+            percentage = (int(moisture)/1024)*100
 
-            if (moisture < 50):
+            if (percentage < 50):
                 GPIO.output(11, GPIO.LOW) # turn on pump
                 watered = 1
             else:
