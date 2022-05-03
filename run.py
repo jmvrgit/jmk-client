@@ -2,6 +2,7 @@
 import serial
 import os
 from time import sleep
+import RPi.GPIO as GPIO
 
 #init values
 moisture=""
