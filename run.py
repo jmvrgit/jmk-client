@@ -8,6 +8,10 @@ moisture=""
 deviceId="1"
 watered=0
 
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.OUT, initial=GPIO.HIGH)
+
 if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1) #select serial USB of arduino
     ser.reset_input_buffer()
