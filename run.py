@@ -21,7 +21,7 @@ if __name__ == '__main__':
             moisture = ser.readline().decode('utf-8').rstrip() #decode serial
             percentage = (int(moisture)/1024)*100
             print(str(percentage) + "% moisture")
-            if (percentage < 50):
+            if (percentage < 70):
                 GPIO.output(11, GPIO.LOW) # turn on pump
                 watered = 1
                 print ("turn pump ON")
