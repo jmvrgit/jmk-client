@@ -20,14 +20,17 @@ if __name__ == '__main__':
         if ser.in_waiting > 0: #if serial buffer is not empty
             moisture = ser.readline().decode('utf-8').rstrip() #decode serial
             percentage = (int(moisture)/1024)*100
-
+            print(str(percentage) + "% moisture")
             if (percentage < 50):
                 GPIO.output(11, GPIO.LOW) # turn on pump
                 watered = 1
+                print ("turn pump ON")
             else:
                 GPIO.output(11, GPIO.HIGH) # keep pump off
                 watered = 0
+                print ("Keep Pump OFF")
 
             #send data to server
             runupload = "node ./index.js " + str(moisture) + " " + str(deviceId) + " " + str(watered) 
             os.system(runupload)
+            print ("Upload Complete")
