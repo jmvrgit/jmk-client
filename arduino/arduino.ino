@@ -7,7 +7,7 @@ void setup() {
 }
 
 void loop() {
- sensorValue = analogRead(sensorPin)
+ sensorValue = analogRead(sensorPin);
  Serial.println(sensorValue);
  delay(1000); // every second for the sake of testing
 }

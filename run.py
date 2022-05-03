@@ -9,7 +9,7 @@ deviceId="1"
 watered=0
 
 if __name__ == '__main__':
-    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1) #select serial USB of arduino
+    ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1) #select serial USB of arduino
     ser.reset_input_buffer()
     while True:
         if ser.in_waiting > 0: #if serial buffer is not empty
